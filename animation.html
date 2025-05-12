@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Stress and Performance&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.flowchart {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-direction: column;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.row {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.box {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 2px solid #333;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 180px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #f9f9f9;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.arrow-down {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 2px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: black;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.arrow-down::after {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>bottom: -10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: -5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-top: 10px solid black;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-left: 5px solid transparent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-right: 5px solid transparent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>canvas {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 150px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 100px !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Stress and Performance&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="controls"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="adjustStress(1)"&gt;Increase Stress&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="adjustStress(-1)"&gt;Decrease Stress&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="resetValues()"&gt;Reset&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="flowchart"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Stress&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;canvas id="stressChart"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="arrow-down"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;strong&gt;Motivation&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;canvas id="motivationChart"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;strong&gt;Anxiety&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;canvas id="anxietyChart"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="arrow-down"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;strong&gt;Performance&lt;/strong&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;canvas id="performanceChart"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let stressLevel = 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let motivationLevel = 7;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let anxietyLevel = 3;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let performanceLevel = 7;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const stressCtx = document.getElementById('stressChart').getContext('2d');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const motivationCtx = document.getElementById('motivationChart').getContext('2d');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const anxietyCtx = document.getElementById('anxietyChart').getContext('2d');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const performanceCtx = document.getElementById('performanceChart').getContext('2d');</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const stressChart = new Chart(stressCtx, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>type: 'bar',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>data: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>labels: ['Stress'],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>datasets: [{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>label: 'Level',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>data: [stressLevel],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>backgroundColor: 'orange'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>options: { scales: { y: { min: 0, max: 10 } } }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const motivationChart = new Chart(motivationCtx, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>type: 'bar',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>data: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>labels: ['Motivation'],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>datasets: [{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>label: 'Level',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>data: [motivationLevel],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>backgroundColor: 'blue'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>options: { scales: { y: { min: 0, max: 10 } } }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const anxietyChart = new Chart(anxietyCtx, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>type: 'bar',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>data: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>labels: ['Anxiety'],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>datasets: [{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>label: 'Level',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>data: [anxietyLevel],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>backgroundColor: 'purple'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>options: { scales: { y: { min: 0, max: 10 } } }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const performanceChart = new Chart(performanceCtx, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>type: 'bar',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>data: {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>labels: ['Performance'],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>datasets: [{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>label: 'Level',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>data: [performanceLevel],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>backgroundColor: 'green'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>options: { scales: { y: { min: 0, max: 10 } } }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function adjustStress(delta) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>stressLevel = Math.max(0, Math.min(10, stressLevel + delta));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>motivationLevel = -Math.pow(stressLevel - 4, 2) / 2.5 + 10; // peak at moderate stress</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>anxietyLevel = Math.pow(stressLevel / 10, 2) * 10; // increases with stress</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>performanceLevel = Math.max(0, Math.min(10, (motivationLevel - anxietyLevel / 2)));</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>updateCharts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function resetValues() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>stressLevel = 5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>motivationLevel = 7;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>anxietyLevel = 3;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>performanceLevel = 7;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>updateCharts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateCharts() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>stressChart.data.datasets[0].data[0] = stressLevel;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>motivationChart.data.datasets[0].data[0] = Math.round(motivationLevel * 10) / 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>anxietyChart.data.datasets[0].data[0] = Math.round(anxietyLevel * 10) / 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>performanceChart.data.datasets[0].data[0] = Math.round(performanceLevel * 10) / 10;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>stressChart.update();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>motivationChart.update();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>anxietyChart.update();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>performanceChart.update();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>updateCharts();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
